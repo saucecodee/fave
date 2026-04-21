@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Day</title>
+    <meta name="description" content="A little corner of the internet, made for a special day." />
+    <meta name="theme-color" content="#fff5f7" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.6.0/confetti.browser.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        :root {
+            --primary: #ff85a1;
+            --secondary: #fbb6ce;
+            --accent: #9f7aea;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fff5f7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .font-cursive {
+            font-family: 'Dancing Script', cursive;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .reveal-card {
+            opacity: 1;
+            transform: none;
+        }
+        .polaroid {
+            background: white;
+            padding: 1rem;
+            padding-bottom: 3rem;
+            box-shadow: 0 10px 30px -5px rgba(255, 133, 161, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .polaroid img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            filter: sepia(20%) contrast(90%) brightness(110%);
+        }
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.08) translateY(-10px) !important;
+            z-index: 10;
+            box-shadow: 0 20px 40px -10px rgba(255, 133, 161, 0.4);
+        }
+        .tape {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 100px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 2;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translateY(-120%);
+            background: white;
+            border: 1px solid rgba(255, 133, 161, 0.35);
+            padding: 0.75rem 1rem;
+            border-bottom-right-radius: 0.75rem;
+            z-index: 50;
+        }
+        .skip-link:focus {
+            transform: translateY(0);
+            outline: 2px solid rgba(159, 122, 234, 0.8);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .floating { animation: none; }
+            .polaroid { transition: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center relative px-6 md:px-20 max-w-6xl mx-auto">
+        <div id="confetti-trigger" class="absolute inset-0 z-0" aria-hidden="true"></div>
+
+        <div class="z-10 text-left">
+            <p class="text-pink-500 font-semibold tracking-widest uppercase mb-4 animate-pulse" aria-label="April 21st">
+                Happy April 21st <span aria-hidden="true">🎂</span>
+            </p>
+
+            <div class="max-w-3xl mb-12 space-y-6">
+                <h1 class="text-5xl md:text-7xl font-cursive text-gray-800 leading-tight" id="hero-msg">
+                    To my favourite person...
+                </h1>
+                <p class="text-gray-600 text-lg md:text-xl leading-relaxed">
+                    I wanted to do something a little different for your day. You're someone who deserves more than just a standard text, so consider this your own little corner of the internet for the day.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+    <!-- Long Birthday Letter Section -->
+    <section class="py-24 px-6 bg-white relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="reveal-card">
+                <h2 class="text-4xl font-cursive text-gray-800 mb-8">A little more I wanted to say...</h2>
+                <div class="space-y-6 text-gray-600 text-lg leading-relaxed md:columns-2 gap-12">
+                    <p>
+                        A queen was born today... nah scrap that 😂
+                    </p>
+                    <p>
+                        Usually, I’m pretty good with words, but you have this way of making me overthink even the simplest sentences. I guess that’s what happens when you’re talking to someone who actually captures your attention the way you do.
+                    </p>
+                    <p>
+                        From the way you carry yourself to the random thoughts you share, everything about you just feels... effortless. I've really enjoyed getting to know you, and honestly, every conversation we have is usually the highlight of my day.
+                    </p>
+                    <p>
+                        Birthdays are a big deal, not just for the celebrations, but because they mark another year of the world being lucky enough to have you in it. I didn't want today to pass by without you knowing exactly how much I appreciate our connection.
+                    </p>
+                    <p>
+                        So, here’s to you. I hope today brings you as much happiness as you give to everyone around you. I hope you're spoiled, I hope the cake is actually good, and I hope you're smiling as you read this.
+                    </p>
+                </div>
+                <div class="mt-12">
+                    <p class="font-cursive text-3xl text-pink-500">- Yours Silly 😛</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Favourite Memories Section -->
+    <section class="py-24 px-6 bg-pink-50/50 overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-cursive text-left text-gray-800 mb-16 pl-4 md:pl-0">Moments that made me smile...</h2>
+            
+            <div class="flex flex-wrap justify-start gap-12 md:gap-16 lg:pl-0">
+                <!-- Memory 1 -->
+                <div class="reveal-card polaroid w-64 md:w-80 -rotate-3">
+                    <div class="tape"></div>
+                    <img src="./777C80A6-7C9B-47FD-B4EF-84E7BAC5F842.gif" alt="A funny driving moment">
+                    <p class="font-cursive text-2xl text-gray-700 text-center mt-4">Baddest Driver</p>
+                    <p class="text-xs text-gray-400 text-center font-medium uppercase tracking-tighter mt-1">you don't even have a license 😂</p>
+                </div>
+
+                <!-- Memory 2 -->
+                <div class="reveal-card polaroid w-64 md:w-80 rotate-2" style="transition-delay: 150ms;">
+                    <div class="tape"></div>
+                    <img src="./Adobe Express - BB2C331D-1AF2-4EFD-9FA9-CF59F8E0EF57.gif" alt="A smile that says it all">
+                    <p class="font-cursive text-2xl text-gray-700 text-center mt-4">Smooth Operator</p>
+                    <p class="text-xs text-gray-400 text-center font-medium uppercase tracking-tighter mt-1">That smile did numbers on me</p>
+                </div>
+
+                <!-- Memory 3 -->
+                <div class="reveal-card polaroid w-64 md:w-80 -rotate-1" style="transition-delay: 300ms;">
+                    <div class="tape"></div>
+                    <img src="./Adobe Express - EC32B9E5-933A-45FD-89B3-9879F2DA382A.gif" alt="A pure good-vibes moment">
+                    <p class="font-cursive text-2xl text-gray-700 text-center mt-4">Minister of Vibes</p>
+                    <p class="text-xs text-gray-400 text-center font-medium uppercase tracking-tighter mt-1">The way you switch up is crazy</p>
+                </div>
+
+                <!-- Memory 4 -->
+                <div class="reveal-card polaroid w-64 md:w-80 -rotate-1" style="transition-delay: 300ms;">
+                    <div class="tape"></div>
+                    <img src="./IMG_7874 (1).gif" alt="A favourite foodie moment">
+                    <p class="font-cursive text-2xl text-gray-700 text-center mt-4">Foodie 😛</p>
+                    <p class="text-xs text-gray-400 text-center font-medium uppercase tracking-tighter mt-1">Anything you cook I'm eating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualities/Mood Grid -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-cursive text-left text-gray-800 mb-16">What makes you, you...</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="reveal-card glass p-8 rounded-2xl shadow-sm border border-pink-100 flex flex-col items-start">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-3xl">✨</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-left">Your Energy</h3>
+                    <p class="text-gray-500 text-left text-base">How you manage to light up even the most random spaces.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="reveal-card glass p-8 rounded-2xl shadow-sm border border-pink-100 flex flex-col items-start" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-3xl">🎨</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-left">Your Style</h3>
+                    <p class="text-gray-500 text-left text-base">You have an aesthetic sense that is honestly unmatched.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="reveal-card glass p-8 rounded-2xl shadow-sm border border-pink-100 flex flex-col items-start" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-3xl">🧠</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-left">The Conversations</h3>
+                    <p class="text-gray-500 text-left text-base">I never get tired of hearing what’s on your mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Happy Birthday Section -->
+    <section class="py-32 px-6 bg-pink-50 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-7xl md:text-9xl font-cursive text-gray-800 mb-8 floating" id="final-title">Happy Birthday Fave! ❤️</h1>
+            <p class="text-pink-500 font-medium text-xl italic mb-12">I hope this year is your best one yet.</p>
+        </div>
+    </section>
+    </main>
+
+    <script>
+        const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
+
+        function celebrate() {
+            if (prefersReducedMotion) return;
+
+            if (typeof confetti !== 'function') {
+                setTimeout(celebrate, 80);
+                return;
+            }
+
+            const duration = 4 * 1000;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ff85a1', '#fbb6ce', '#9f7aea']
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ff85a1', '#fbb6ce', '#9f7aea']
+                });
+
+                if (Date.now() < end) requestAnimationFrame(frame);
+            }());
+        }
+
+        window.addEventListener('load', () => {
+            if (!prefersReducedMotion && typeof gsap !== 'undefined') {
+                gsap.from("#hero-msg", { opacity: 0, x: -50, duration: 1.3, ease: "power3.out" });
+            }
+
+            celebrate();
+        });
+    </script>
+</body>
+</html>
